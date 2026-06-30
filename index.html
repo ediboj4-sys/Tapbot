@@ -328,7 +328,7 @@ document.getElementById('dailyBtn').onclick = async ()=>{
 document.getElementById('joinBtn').onclick = ()=>{ xp += 5; updateUI(); document.getElementById('joinPopup').style.display='none'; window.open('https://t.me/airdropesr','_blank'); };
 
 // referral open
-document.getElementById('openRef').addEventListener('click', ()=>{ const url = 'https://t.me/@Profitvablebot?start=12345'; navigator.clipboard?.writeText(url).then(()=>alert('Referral link copied')); });
+document.getElementById('openRef').addEventListener('click', ()=>{ const url = 'https://t.me/@Vfrevbot?start=12345'; navigator.clipboard?.writeText(url).then(()=>alert('Referral link copied')); });
 
 // withdraw
 document.getElementById('withdrawBtn').addEventListener('click', ()=>{ let amount = parseInt(document.getElementById('amount').value); if(!amount || amount < 10000) return alert('Minimum 10,000 XP'); if(xp < amount) return alert('Not enough XP'); xp -= amount; updateUI(); alert('Withdraw Sent'); });
