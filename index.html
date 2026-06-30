@@ -11,12 +11,12 @@
 
 <style>
   :root{
-    --bg:#0b1720; /* overall dark background like screenshot */
+    --bg:#0b1720;
     --panel:#0f1b24;
     --card:#0d1922;
-    --blue-1:#0b3b74; /* deep blue for inner circle */
-    --blue-2:#083154; /* ring gradient */
-    --accent-green:#7bd400; /* energy bar green from screenshot */
+    --blue-1:#0b3b74;
+    --blue-2:#083154;
+    --accent-green:#7bd400;
     --accent-cyan:#00bcd4;
     --muted:#9aa9bf;
     --glass: rgba(255,255,255,0.02);
@@ -34,7 +34,6 @@
     padding:0;
   }
 
-  /* top black header bar like screenshot */
   .topbar{
     background:#111212;
     height:56px;
@@ -45,47 +44,23 @@
     border-bottom:1px solid rgba(255,255,255,0.02);
   }
   .top-left{display:flex;align-items:center;gap:12px}
-  .envato{
-    color:#8be56b; /* envato green */
-    font-weight:800;
-    font-size:16px;
-  }
-  .buy-btn{
-    background:#78b63a;
-    color:#06210a;
-    padding:8px 14px;
-    border-radius:8px;
-    font-weight:700;
-    border:none;
-    cursor:pointer;
-  }
+  .envato{color:#8be56b;font-weight:800;font-size:16px}
 
   .container{padding:18px; max-width:520px; margin:0 auto}
 
-  .header{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-top:12px;
-    margin-bottom:10px;
-  }
+  .header{display:flex;align-items:center;justify-content:space-between;margin-top:12px;margin-bottom:10px}
   .logo{display:flex;align-items:center;gap:10px}
   .logo .title{font-size:14px;color:#b9c6d3;font-weight:700}
 
-  .wallet-pill{
-    background:linear-gradient(90deg,#0aa8dc,#1376d8);
-    color:white;
-    padding:8px 12px;
-    border-radius:18px;
-    font-weight:700;
-    font-size:13px;
-  }
+  .wallet-pill{background:linear-gradient(90deg,#0aa8dc,#1376d8);color:white;padding:8px 12px;border-radius:18px;font-weight:700;font-size:13px}
 
-  .balance-area{ text-align:center; margin-top:10px }
-  .balance-top{ display:flex;align-items:center;justify-content:center;gap:10px }
-  .coin-icon{
-    width:40px;height:40px;border-radius:50%;background:linear-gradient(180deg,#ffd24d,#ffb200);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.5);
-  }
+  /* Booster pill (replaces buy button) */
+  .booster-pill{background:linear-gradient(90deg,#ffb84d,#ff8a00);color:#071214;padding:8px 12px;border-radius:18px;font-weight:800;cursor:pointer;border:none}
+  .booster-status{font-size:12px;color:var(--muted);margin-left:8px}
+
+  .balance-area{text-align:center;margin-top:10px}
+  .balance-top{display:flex;align-items:center;justify-content:center;gap:10px}
+  .coin-icon{width:40px;height:40px;border-radius:50%;background:linear-gradient(180deg,#ffd24d,#ffb200);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,0.5)}
   .points-large{font-size:36px;font-weight:800;margin-left:6px}
   .points-suffix{color:#cbd6de;margin-left:8px;font-weight:700}
 
@@ -93,64 +68,53 @@
   .income-bar .label{font-weight:800;color:#fff}
   .income-bar .value{color:#ffd24d;font-weight:900}
 
-  /* big circular avatar area like screenshot */
   .avatar-wrap{display:flex;align-items:center;justify-content:center;margin-top:8px}
-  .big-circle{
-    width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 40% 35%, rgba(10,60,120,0.65), rgba(3,22,45,0.85));
-    display:flex;align-items:center;justify-content:center;position:relative;border:6px solid rgba(6,50,95,0.45);box-shadow:0 30px 60px rgba(0,0,0,0.6);
-  }
+  .big-circle{width:320px;height:320px;border-radius:50%;background:radial-gradient(circle at 40% 35%, rgba(10,60,120,0.65), rgba(3,22,45,0.85));display:flex;align-items:center;justify-content:center;position:relative;border:6px solid rgba(6,50,95,0.45);box-shadow:0 30px 60px rgba(0,0,0,0.6)}
   .inner-ring{width:88%;height:88%;border-radius:50%;background:radial-gradient(circle at 35% 30%, rgba(0,0,0,0.15), transparent),linear-gradient(180deg,var(--blue-1),var(--blue-2));display:flex;align-items:center;justify-content:center}
 
   .mascot{width:150px;height:150px;display:flex;align-items:center;justify-content:center}
   .mascot img{width:100%;height:100%;object-fit:contain}
 
-  /* pulse and orbit rings */
   .orbit{position:absolute;border-radius:50%;pointer-events:none;border:1px solid rgba(0,140,255,0.08)}
   .orbit.o1{width:380px;height:380px;opacity:0.06}
   .orbit.o2{width:460px;height:460px;opacity:0.03}
 
-  /* energy bar */
   .energy-wrap{margin-top:18px;display:flex;flex-direction:column;align-items:center;gap:10px}
   .energy-bar{width:260px;height:14px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden}
   .energy-bar > div{height:100%;width:60%;background:var(--accent-green);border-radius:10px}
   .energy-text{font-weight:800;color:#fff}
   .energy-count{color:var(--accent-green);margin-left:6px}
 
-  /* bottom nav icons panel */
   .icons-panel{background:#0b1720;margin-top:22px;padding:12px;border-radius:10px;display:flex;justify-content:center;gap:40px;box-shadow:0 10px 24px rgba(0,0,0,0.5)}
   .icon{width:50px;height:60px;display:flex;align-items:center;justify-content:center;color:#2e5dc8;font-size:26px}
 
-  /* floating +XP animation */
   .plus-fly{position:absolute;color:var(--accent-green);font-weight:900;font-size:18px;pointer-events:none;animation:flyUp 900ms ease forwards;text-shadow:0 6px 18px rgba(0,0,0,0.6)}
   @keyframes flyUp{0%{transform:translateY(0) scale(1);opacity:1}70%{transform:translateY(-40px) scale(1.05);opacity:1}100%{transform:translateY(-80px) scale(1);opacity:0}}
 
   .pulse{position:absolute;width:100%;height:100%;border-radius:50%;background:radial-gradient(circle, rgba(0,180,255,0.12), transparent 35%);animation:pulseOut 700ms ease;pointer-events:none}
   @keyframes pulseOut{0%{transform:scale(0.6);opacity:0.9}100%{transform:scale(1.9);opacity:0}}
 
-  /* buttons and sections */
   .actions{display:flex;gap:12px;justify-content:center;margin-top:18px}
   .action-btn{background:linear-gradient(90deg,#083154,#084b6a);color:#bcd3df;padding:10px 12px;border-radius:8px;border:1px solid rgba(255,255,255,0.02);font-weight:800}
 
-  /* responsive */
-  @media(max-width:420px){
-    .big-circle{width:260px;height:260px}
-    .orbit.o1{width:300px;height:300px}
-    .orbit.o2{width:360px;height:360px}
-    .energy-bar{width:200px}
-  }
+  @media(max-width:420px){.big-circle{width:260px;height:260px}.orbit.o1{width:300px;height:300px}.orbit.o2{width:360px;height:360px}.energy-bar{width:200px}}
 </style>
 </head>
 <body>
 
   <div class="topbar">
     <div class="top-left"><div class="envato">envato</div><div style="color:#cbd6de">market</div></div>
-    <button class="buy-btn">Buy now</button>
+    <!-- replaced Buy now with Booster button -->
+    <button id="boosterBtn" class="booster-pill">Booster</button>
   </div>
 
   <div class="container">
     <div class="header">
       <div class="logo"><div class="title">Tap & Earn X</div></div>
-      <div class="wallet-pill" id="walletBtn">Withdraw</div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <div class="wallet-pill" id="walletBtn">Withdraw</div>
+        <div class="booster-status" id="boosterStatus">0 / 40</div>
+      </div>
     </div>
 
     <div class="balance-area">
@@ -199,7 +163,6 @@
 
     </div>
 
-    <!-- sections below kept but compacted -->
     <div style="margin-top:18px">
       <div style="background:var(--card);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.02);">
         <div style="font-weight:800;margin-bottom:8px">🎮 Tap System</div>
@@ -229,7 +192,6 @@
 
   </div>
 
-<!-- JOIN POPUP (kept) -->
 <div id="joinPopup" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;z-index:9999;background:rgba(0,0,0,0.7)">
   <div style="background:#071827;padding:16px;border-radius:10px;width:92%;max-width:420px;text-align:center;border:1px solid rgba(255,255,255,0.02)">
     <h3>Join Our Channel</h3>
@@ -239,8 +201,7 @@
 </div>
 
 <script>
-const tg = window.Telegram?.WebApp;
-try{tg?.expand?.();}catch(e){}
+const tg = window.Telegram?.WebApp; try{tg?.expand?.();}catch(e){}
 
 let xp = Number(localStorage.getItem('xp') || '54750');
 let taps = Number(localStorage.getItem('taps') || '0');
@@ -249,17 +210,23 @@ let dailyProgress = Number(localStorage.getItem('dailyProgress') || '0');
 
 /* KEEP ALL ADSGRAM BLOCK IDS EXACTLY AS BEFORE */
 const DAILY_BLOCKS = ["task-29806","task-29807","task-29808","task-29809"];
+// existing ad ids used elsewhere: 29779, 29780, 35248
+
+// Booster/watch ad blocks we may rotate through (preserve IDs)
+const BOOST_AD_BLOCKS = ['29779','29780','35248'];
 
 let rewardAd, taskAd;
+let tapMultiplier = Number(localStorage.getItem('tapMultiplier') || '1');
+let boosterWatched = Number(localStorage.getItem('boosterWatched') || '0');
 
 function formatThousands(v){return (v/1000).toFixed(2).replace(/\.00$/,'');}
 
 const pointsEl = document.getElementById('points');
-const energyValEl = document.getElementById('energyVal');
 const energyFill = document.getElementById('energyFill');
 const mascotBtn = document.getElementById('mascotBtn');
 const bigCircle = document.getElementById('bigCircle');
 const dailyBarInner = document.querySelector('#dailyProgressBar > div');
+const boosterStatusEl = document.getElementById('boosterStatus');
 
 function updateUI(){
   pointsEl.innerText = formatThousands(xp);
@@ -271,6 +238,9 @@ function updateUI(){
   localStorage.setItem('xp', xp);
   localStorage.setItem('taps', taps);
   localStorage.setItem('dailyProgress', dailyProgress);
+  localStorage.setItem('tapMultiplier', tapMultiplier);
+  localStorage.setItem('boosterWatched', boosterWatched);
+  boosterStatusEl.innerText = boosterWatched + ' / 40';
   let dPct = Math.min(100, Math.round((dailyProgress/4)*100));
   dailyBarInner.style.width = dPct + '%';
 }
@@ -281,30 +251,27 @@ window.onload = function(){
     rewardAd = Adsgram.init({ blockId:'29779' });
     taskAd = Adsgram.init({ blockId:'29780' });
     let joinAd = Adsgram.init({ blockId:'35248' });
-    joinAd.show().finally(() => { document.getElementById('joinPopup').style.display = 'flex'; });
+    joinAd.show().finally(()=>{ document.getElementById('joinPopup').style.display = 'flex'; });
   }
 };
 
-function showPlus(x,y,text='+1'){
-  const el = document.createElement('div');
-  el.className='plus-fly';el.style.left = x+'px';el.style.top = y+'px';el.innerText = text;document.body.appendChild(el);
-  setTimeout(()=>el.remove(),900);
-}
-function pulseOn(target){const p=document.createElement('div');p.className='pulse';target.appendChild(p);setTimeout(()=>p.remove(),700);}
+function showPlus(x,y,text='+1'){const el=document.createElement('div');el.className='plus-fly';el.style.left=x+'px';el.style.top=y+'px';el.innerText=text;document.body.appendChild(el);setTimeout(()=>el.remove(),900)}
+function pulseOn(target){const p=document.createElement('div');p.className='pulse';target.appendChild(p);setTimeout(()=>p.remove(),700)}
 
 function doTap(amount=1,targetEl=bigCircle){
-  xp += amount; taps += 1; updateUI();
+  const earned = amount * tapMultiplier;
+  xp += earned; taps += 1; updateUI();
   targetEl.animate([{transform:'scale(1)'},{transform:'scale(0.97)'},{transform:'scale(1)'}],{duration:220,easing:'cubic-bezier(.2,.9,.3,1)'});
   pulseOn(targetEl);
   const r = targetEl.getBoundingClientRect();
-  showPlus(r.left + r.width/2 - 10, r.top + r.height/2 - 20, '+'+amount);
+  showPlus(r.left + r.width/2 - 10, r.top + r.height/2 - 20, '+'+earned);
 }
 
 mascotBtn.addEventListener('click', ()=> doTap(1,bigCircle));
 bigCircle.addEventListener('click', ()=> doTap(1,bigCircle));
-
 document.getElementById('tapBtn').addEventListener('click', ()=> doTap(1,bigCircle));
 
+// Watch ad / task buttons (keep behavior)
 document.getElementById('rewardBtn').addEventListener('click', async ()=>{
   if(!rewardAd) return alert('Ad not ready');
   try{const res = await rewardAd.show(); if(res?.done){ xp += 10; updateUI(); alert('Reward +10 XP'); }}catch(e){console.warn(e)}
@@ -313,6 +280,30 @@ document.getElementById('rewardBtn').addEventListener('click', async ()=>{
 document.getElementById('taskBtn').addEventListener('click', async ()=>{
   if(!taskAd) return alert('Task ad not ready');
   try{const res = await taskAd.show(); if(res?.done){ xp += 10; updateUI(); alert('Task Completed +10 XP'); }}catch(e){console.warn(e)}
+});
+
+// Booster flow: clicking boosterBtn shows a random ad from BOOST_AD_BLOCKS. Each completed ad increments boosterWatched.
+async function showRandomBoosterAd(){
+  if(typeof Adsgram === 'undefined') return alert('Ads not ready');
+  const pick = BOOST_AD_BLOCKS[Math.floor(Math.random()*BOOST_AD_BLOCKS.length)];
+  try{
+    const ad = Adsgram.init({ blockId: pick });
+    const res = await ad.show();
+    if(res?.done){
+      boosterWatched = (boosterWatched || 0) + 1;
+      // apply multiplier thresholds
+      if(boosterWatched >= 40) tapMultiplier = 4;
+      else if(boosterWatched >= 20) tapMultiplier = 2;
+      else tapMultiplier = 1;
+      updateUI();
+      alert('Booster ad watched ('+boosterWatched+'/40). Tap multiplier: x'+tapMultiplier);
+    }
+  }catch(e){ console.warn(e); }
+}
+
+document.getElementById('boosterBtn').addEventListener('click', ()=>{
+  // Open booster flow: watch one ad at a time. User must watch 20 for x2 and 40 for x4
+  showRandomBoosterAd();
 });
 
 // daily optional
@@ -336,20 +327,16 @@ document.getElementById('dailyBtn').onclick = async ()=>{
 // join popup
 document.getElementById('joinBtn').onclick = ()=>{ xp += 5; updateUI(); document.getElementById('joinPopup').style.display='none'; window.open('https://t.me/CashGyana','_blank'); };
 
-// referral open placeholder (keeps ad ids intact elsewhere)
+// referral open
 document.getElementById('openRef').addEventListener('click', ()=>{ const url = 'https://t.me/@Profitvablebot?start=12345'; navigator.clipboard?.writeText(url).then(()=>alert('Referral link copied')); });
 
-// copy withdraw
-document.getElementById('withdrawBtn').addEventListener('click', ()=>{
-  let amount = parseInt(document.getElementById('amount').value);
-  if(!amount || amount < 10000) return alert('Minimum 10,000 XP');
-  if(xp < amount) return alert('Not enough XP'); xp -= amount; updateUI(); alert('Withdraw Sent');
-});
+// withdraw
+document.getElementById('withdrawBtn').addEventListener('click', ()=>{ let amount = parseInt(document.getElementById('amount').value); if(!amount || amount < 10000) return alert('Minimum 10,000 XP'); if(xp < amount) return alert('Not enough XP'); xp -= amount; updateUI(); alert('Withdraw Sent'); });
 
 // header withdraw scroll
 document.getElementById('walletBtn').addEventListener('click', ()=>{ const sec = document.getElementById('withdrawSection'); if(sec){ sec.scrollIntoView({behavior:'smooth', block:'center'}); setTimeout(()=>document.getElementById('amount').focus(),350); } });
 
-// accessibility keyboard tap
+// keyboard accessibility
 mascotBtn.addEventListener('keydown', (e)=>{ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); doTap(1,bigCircle); } });
 
 </script>
