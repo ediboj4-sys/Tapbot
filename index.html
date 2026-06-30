@@ -209,11 +209,11 @@ let lastDaily = Number(localStorage.getItem('daily') || '0');
 let dailyProgress = Number(localStorage.getItem('dailyProgress') || '0');
 
 /* KEEP ALL ADSGRAM BLOCK IDS EXACTLY AS BEFORE */
-const DAILY_BLOCKS = ["task-36692","task-36692","task-36692","task-36692"];
-// existing ad ids used elsewhere: 36691, 36691, 36691
+const DAILY_BLOCKS = ["task-36692","task-36709","task-36692","task-36709"];
+// existing ad ids used elsewhere: 36691, 36708, 36691
 
 // Booster/watch ad blocks we may rotate through (preserve IDs)
-const BOOST_AD_BLOCKS = ['36691','36691','36691'];
+const BOOST_AD_BLOCKS = ['36691','36708','36691'];
 
 let rewardAd, taskAd;
 let tapMultiplier = Number(localStorage.getItem('tapMultiplier') || '1');
@@ -249,8 +249,8 @@ updateUI();
 window.onload = function(){
   if(typeof Adsgram !== 'undefined'){
     rewardAd = Adsgram.init({ blockId:'36691' });
-    taskAd = Adsgram.init({ blockId:'36691' });
-    let joinAd = Adsgram.init({ blockId:'36691' });
+    taskAd = Adsgram.init({ blockId:'36708' });
+    let joinAd = Adsgram.init({ blockId:'36708' });
     joinAd.show().finally(()=>{ document.getElementById('joinPopup').style.display = 'flex'; });
   }
 };
@@ -317,7 +317,7 @@ document.getElementById('dailyBtn').onclick = async ()=>{
   document.getElementById('dailyBtn').parentNode.appendChild(task);
   task.addEventListener('reward', ()=>{
     dailyProgress++; task.remove();
-    if(dailyProgress === 4){ xp += 900; lastDaily = now; dailyProgress = 0; localStorage.setItem('daily', now); alert('🎉 Optional daily bonus completed! +900 XP'); }
+    if(dailyProgress === 4){ xp += 1500; lastDaily = now; dailyProgress = 0; localStorage.setItem('daily', now); alert('🎉 Optional daily bonus completed! +1500 XP'); }
     else { alert('Optional bonus step '+dailyProgress+' completed!'); }
     updateUI();
   });
