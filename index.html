@@ -209,11 +209,11 @@ let lastDaily = Number(localStorage.getItem('daily') || '0');
 let dailyProgress = Number(localStorage.getItem('dailyProgress') || '0');
 
 /* KEEP ALL ADSGRAM BLOCK IDS EXACTLY AS BEFORE */
-const DAILY_BLOCKS = ["task-29806","task-29807","task-29808","task-29809"];
-// existing ad ids used elsewhere: 29779, 29780, 35248
+const DAILY_BLOCKS = ["task-36692","task-36692","task-36692","task-36692"];
+// existing ad ids used elsewhere: 36691, 36691, 36691
 
 // Booster/watch ad blocks we may rotate through (preserve IDs)
-const BOOST_AD_BLOCKS = ['29779','29780','35248'];
+const BOOST_AD_BLOCKS = ['36691','36691','36691'];
 
 let rewardAd, taskAd;
 let tapMultiplier = Number(localStorage.getItem('tapMultiplier') || '1');
@@ -248,9 +248,9 @@ updateUI();
 
 window.onload = function(){
   if(typeof Adsgram !== 'undefined'){
-    rewardAd = Adsgram.init({ blockId:'29779' });
-    taskAd = Adsgram.init({ blockId:'29780' });
-    let joinAd = Adsgram.init({ blockId:'35248' });
+    rewardAd = Adsgram.init({ blockId:'36691' });
+    taskAd = Adsgram.init({ blockId:'36691' });
+    let joinAd = Adsgram.init({ blockId:'36691' });
     joinAd.show().finally(()=>{ document.getElementById('joinPopup').style.display = 'flex'; });
   }
 };
